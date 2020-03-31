@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>minecraftserver-hibernate</Name>
+  <Repository>lubocode/minecraftserver-hibernate</Repository>
+  <Registry>https://hub.docker.com/r/lubocode/minecraftserver-hibernate/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/lubocode/minecraftserver-hibernate/</Support>
+  <Project>https://www.minecraft.net/de-de/download/server/</Project>
+  <Overview>openjdk:8-jre-alpine based image with go script for auto start and stop of MC server&#xD;
+&#xD;
+Go script originally from github.com/gekigek99&#xD;
+Modified for Docker and unRAID usage by github.com/lubocode&#xD;
+&#xD;
+This image does not come with a Minecraft server installation.&#xD;
+Please supply your own minecraft_server.jar into the associated folder.</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/lubocode/minecraft-vanilla-server-hibernation/master/go-version/mcIcon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1585675022</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>openjdk:8-jre-alpine based image with go script for auto start and stop of MC server&#xD;
+&#xD;
+Go script originally from github.com/gekigek99&#xD;
+Modified for Docker and unRAID usage by github.com/lubocode&#xD;
+&#xD;
+This image does not come with a Minecraft server installation.&#xD;
+Please supply your own minecraft_server.jar into the associated folder.</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>25555</HostPort>
+        <ContainerPort>25555</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>25555</HostPort>
+        <ContainerPort>25555</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/minecraftserver-hibernate</HostDir>
+      <ContainerDir>/minecraftserver</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>512M</Value>
+      <Name>minRAM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>2G</Value>
+      <Name>maxRAM</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>minecraft_server.jar</Value>
+      <Name>mcFile</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/minecraftserver/</Value>
+      <Name>mcPath</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Minecraft folder" Target="/minecraftserver" Default="" Mode="rw" Description="Container Path: /minecraftserver" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/minecraftserver-hibernate</Config>
+  <Config Name="TCP Port" Target="25555" Default="25555" Mode="tcp" Description="Container Port: 25555" Type="Port" Display="always" Required="true" Mask="false">25555</Config>
+  <Config Name="UDP Port" Target="25555" Default="25555" Mode="udp" Description="Container Port: 25555" Type="Port" Display="always" Required="true" Mask="false">25555</Config>
+  <Config Name="Minimum Amount Of RAM" Target="minRAM" Default="512M" Mode="" Description="Container Variable: minRAM" Type="Variable" Display="always" Required="true" Mask="false">512M</Config>
+  <Config Name="Maximum Amount Of RAM" Target="maxRAM" Default="2G" Mode="" Description="Container Variable: maxRAM" Type="Variable" Display="always" Required="true" Mask="false">4G</Config>
+  <Config Name="Minecraft Server Filename" Target="mcFile" Default="minecraft_server.jar" Mode="" Description="Container Variable: mcFile" Type="Variable" Display="always" Required="true" Mask="false">forge-1.14.4-28.1.0.jar</Config>
+  <Config Name="Minecraft Folder Path" Target="mcPath" Default="/minecraftserver/" Mode="" Description="Container Variable: mcPath ;&#13;&#10;Path to the MC folder inside the container. Append subfolder names to default." Type="Variable" Display="advanced" Required="true" Mask="false">/minecraftserver/</Config>
+</Container>
